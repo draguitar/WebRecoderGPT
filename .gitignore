@@ -1,0 +1,132 @@
+.venv/
+.env
+.mp3
+.wav
+
+# Compiled object files
+*.o
+*.obj
+*.lo
+
+# Libraries
+*.lib
+*.a
+*.la
+*.so
+
+# Shared object files (may vary depending on the platform)
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Object files and archives from Visual Studio
+*.pdb
+*.ilk
+*.exp
+
+# Xcode
+*.xcuserstate
+
+# Android Studio
+.gradle/
+*.iml
+local.properties
+.idea/workspace.xml
+.idea/libraries
+.idea/modules.xml
+.idea/caches
+*.apk
+*.aar
+
+# IntelliJ IDEA
+.idea/
+out/
+production/
+
+# NetBeans
+nbproject/private/
+build/
+dist/
+nbdist/
+
+# Eclipse
+.classpath
+.project
+.settings/
+target/
+*.checkstyle
+*.pmd
+.factorypath
+
+# PyCharm
+.idea/
+*.pyc
+__pycache__/
+venv/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# Documentation
+doc/
+javadoc/
+
+# Backup files
+*.bak
+*.swp
+*.swo
+*~
+.#*
+
+# Configuration files (sensitive information should be stored separately)
+*.ini
+*.cfg
+*.conf
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Package Managers
+node_modules/
+bower_components/
+vendor/
+
+# Build tools
+build/
+dist/
+
+# Test results
+test/results/
+test/reports/
+
+# Version control
+.git/
+.svn/
+.hg/
+
+# Generated code (if applicable)
+gen/
+generated/
+generated-sources/
+
+
+# Specific to your project (add these as needed)
+# Example:
+# my_data.csv
+# sensitive_info.txt
