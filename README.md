@@ -1,30 +1,22 @@
-# Record your voice to text using Flask 
+# Recording Audio and Transcribing with OpenAI API using Flask
 
-In this blog post, we are going to create a simple web app that allows us record our voice from the web browser and convert it to text by using the we browser
+This application allows you to record audio through the browser and transcribe it into text using an API.
 
-First we get the main programs
+First clone the main programs
 
 ```
-git clone https://github.com/ruslanmv/Voice-to-text-with-Python-in-Flask.git
+git clone https://github.com/draguitar/WebRecoderGPT.git
 ```
 
 we enter to the folder
 
 ```
-cd Voice-to-text-with-Python-in-Flask
+cd WebRecoderGPT
 ```
 
-Create Python Virtual Environment
 
 ```
-python -m venv transcribe
-source transcribe/bin/activate
-```
-
-Install Flask and  Gunicorn
-
-```
-pip install flask gunicorn
+pip install -r requirements.txt
 ```
 
 
@@ -87,93 +79,20 @@ We can  run the application in your local system
 
 and verify that it works locally
 
-This has the following requirements.txt 
+This has the following requirements.txt
 
 
-
-```
-Flask==2.0.1
-SpeechRecognition==3.8.1
-pytest==6.2.4
-gunicorn==20.1.0
-```
-
-in such case you require to modify the dependencies you can perform
-
-```
-pip freeze
-pip freeze > requirements.txt
-```
-
-the Procfile file
-
-**Procfile**
-
-```
-web: gunicorn wsgi:app
-```
 
 we requiere a  **runtime.txt** file
 
-we can check the supported [runtimes](https://devcenter.heroku.com/articles/python-support#supported-runtimes) in my case I will use  the version python-3.7.11
 
 ```
-python-3.7.11
+python-3.10.14
 ```
-
-In this step you’ll install the Heroku Command Line Interface (CLI). You use the CLI to manage and scale your applications, provision add-ons, view your application logs, and run your application locally.
 
 To record the audio I have used a simple HTML/JS demo that uses [WebAudioRecorder.js](https://github.com/higuma/web-audio-recorder-js) to record wav  a web page.
 
 
-
-#### Install the Heroku CLI
-
-Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
-
-If you haven’t already, log in to your Heroku account and follow the prompts to create a new SSH public key.
-
-```
-$ heroku login
-```
-
-
-
-## Deploy the app
-
-In this step you will deploy the app to Heroku.
-
-Create an app on Heroku, which prepares Heroku to receive your source code:
-
-```term
-heroku create voicetotext-ruslanmv
-```
-
-if we type only `heroku create` it is automatically generated instance name plus the Heroku domain.
-
-When you create an app, a git remote (called `heroku`) is also created and associated with your local git repository.
-
-Heroku generates a random name (in this case `voicetotext-ruslanmv`) for your app, or you can pass a parameter to specify your own app name.
-
-If you haven’t already added these files to a git repo, do it by running the following in your terminal:
-
-```
-git init
-git add -A
-git commit -am "commit message here"
-heroku git:remote -a  voicetotext-ruslanmv
-git push heroku master
-```
-
-We just need to push this to a Heroku dyno. First, let’s allocate a Heroku dyno for our app by running:
-
-```
-heroku open
-```
-
-You’ll notice the web address is 
-
-[https://voicetotext-ruslanmv.herokuapp.com/](https://voicetotext-ruslanmv.herokuapp.com/)
 
 ![](./assets/images/posts/README/page.jpg)
 
@@ -214,10 +133,6 @@ Step 3. Upload your wave file and then
 Step 4 press transcribe button and you see the results
 
 ![](./assets/images/posts/README/4aa.jpg)
-
-You can try:
-
-[https://voicetotext-ruslanmv.herokuapp.com/](https://voicetotext-ruslanmv.herokuapp.com/)
 
 
 
