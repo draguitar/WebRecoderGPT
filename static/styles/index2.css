@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1b1b;
+  color: #00bd7e;
+  font-family: Arial, sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+}
+.text {
+  text-align: left;
+}
+.text h1 {
+  margin: 0;
+}
+.text p {
+  margin-top: 10px;
+  color: #ebebeba3;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px 0;
+  border-radius: 20px; /* 添加圓角 */
+}
+.btn-stop {
+  background-color: hsl(345, 73%, 65%); /* 停止錄音時按鈕顏色變為紅色 */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-start {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.btn-settings {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+a {
+  color: #00bd7e; /* 修改超連結顏色 */
+  text-decoration: none; /* 去掉下劃線（可選） */
+}
+a:hover {
+  text-decoration: underline; /* 滑鼠懸停時顯示下劃線（可選） */
+}

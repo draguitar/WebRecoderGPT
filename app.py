@@ -88,7 +88,7 @@ def index():
                 msg = summary(transcription)
                 html_content = markdown(msg)
 
-    return render_template('index.html', transcript=transcription, summary=html_content)
+    return render_template('index2.html', transcript=transcription, summary=html_content)
 
 @app.route('/autoUpload', methods=['POST'])
 def upload_audio():
