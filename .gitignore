@@ -1,7 +1,7 @@
 .venv/
 .env
-.mp3
-.wav
+*.mp3
+*.wav
 .conda/
 
 # Compiled object files

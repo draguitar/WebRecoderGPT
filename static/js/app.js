@@ -88,9 +88,11 @@ function startRecording() {
       });
       //#TODO
       recorder.onComplete = function (recorder, blob) {
-        console.error(recorder);
-        console.error(blob);
+        console.info(recorder);
+        console.info(blob);
         __log("Encoding complete");
+
+        //產生下載連結
         createDownloadLink(blob, recorder.encoding);
 
         autoUpload(blob, recorder);
@@ -173,7 +175,6 @@ function autoUpload(blob) {
   // Params
   // @blob
   // @filename
-  // const uniqueId = crypto.randomUUID().slice(0, 8);
   const uniqueId = crypto.randomUUID();
   formData.append(
     "audio_file",
@@ -194,4 +195,9 @@ function autoUpload(blob) {
       console.error("Error:", error);
       __log("Error uploading file");
     });
+}
+
+//helper function
+function __log(e, data) {
+  log.innerHTML += "\n" + e + " " + (data || "");
 }

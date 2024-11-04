@@ -14,6 +14,14 @@
       <div class="text">
         <h1>會議記錄小助理</h1>
         <p>Meeting record and translation</p>
+        <div style="display: none">
+          <p>Convert recorded audio to wav:</p>
+          <select id="encodingTypeSelect">
+            <option value="wav">Waveform Audio (.wav)</option>
+            <option value="mp3" selected>MP3 Audio (.mp3)</option>
+          </select>
+          <ol id="recordingsList"></ol>
+        </div>
         <p>
           <a href="#">Whisper</a> |
           <!--
@@ -31,13 +39,14 @@
           停止錄音/Stop
         </button>
       </div>
-      <div id="formats"></div>
-      <pre>Log</pre>
-      <pre id="log"></pre>
       <br />
     </div>
 
-    <div id="speechContainer">
+    <div id="formats"></div>
+    <pre>Log</pre>
+    <pre id="log"></pre>
+    <!--
+    <div id="speechContainer" style="display:none">
         <br>
         <h3>Step 3 - 上傳聲音</h3>
         <form method="post" enctype="multipart/form-data">
@@ -63,7 +72,7 @@
             </div>
         {% endif %}
     </div>
-
+-->
     <script src="{{ url_for('static', filename='js/WebAudioRecorder.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
