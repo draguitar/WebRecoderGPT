@@ -34,17 +34,20 @@
         </p>
       </div>
       <div class="buttons">
-        <button class="btn-start" id="recordButton">開始錄音/Start</button>
-        <button class="btn-settings" id="stopButton" disabled>
+        <button class="btn-start active" id="recordButton">
+          開始錄音/Start
+        </button>
+        <button class="btn-stop disabled" id="stopButton" disabled>
           停止錄音/Stop
         </button>
       </div>
       <br />
     </div>
-
-    <div id="formats"></div>
-    <pre>Log</pre>
-    <pre id="log"></pre>
+    <div id="log_container">
+      <div id="formats"></div>
+      <pre>Log</pre>
+      <pre id="log"></pre>
+    </div>
     <!--
     <div id="speechContainer" style="display:none">
         <br>

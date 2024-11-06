@@ -2,34 +2,40 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  /*
   display: flex;
   justify-content: center;
+  */
   align-items: center;
   background-color: #1b1b1b;
   color: #00bd7e;
   font-family: Arial, sans-serif;
 }
+/* Container styles */
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
+
+/* Text styles */
 .text {
-  text-align: left;
+  margin-bottom: 30px;
 }
+
 .text h1 {
-  margin: 0;
+  margin-bottom: 10px;
 }
 .text p {
   margin-top: 10px;
   color: #ebebeba3;
 }
+
+/* Buttons container */
 .buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 button {
@@ -38,29 +44,55 @@ button {
   margin: 10px 0;
   border-radius: 20px; /* 添加圓角 */
 }
+
 .btn-stop {
   background-color: hsl(345, 73%, 65%); /* 停止錄音時按鈕顏色變為紅色 */
   color: white;
   border: none;
   cursor: pointer;
 }
-
 .btn-start {
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
 }
-.btn-settings {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  cursor: pointer;
+
+/* Log container styles */
+#log_container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-top: 1px solid #ccc;
 }
+
+#log {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 a {
   color: #00bd7e; /* 修改超連結顏色 */
   text-decoration: none; /* 去掉下劃線（可選） */
 }
 a:hover {
   text-decoration: underline; /* 滑鼠懸停時顯示下劃線（可選） */
+}
+
+.btn-start active {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-stop active {
+  background-color: hsl(345, 73%, 65%);
+  color: white;
+}
+
+.disabled {
+  background-color: white;
+  color: #666;
+  border-color: #ccc;
+  cursor: not-allowed;
 }

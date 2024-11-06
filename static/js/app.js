@@ -22,6 +22,16 @@ stopButton.addEventListener("click", stopRecording);
 function startRecording() {
   console.log("startRecording() called");
 
+  /* 2024-11-06 */
+  // 禁用 Record 按鈕
+  recordButton.disabled = true;
+  recordButton.classList.remove("active");
+  recordButton.classList.add("disabled");
+  // 啟用 Stop 按鈕
+  stopButton.disabled = false;
+  stopButton.classList.remove("disabled");
+  stopButton.classList.add("active");
+
   /*
 		Simple constraints object, for more advanced features see
 		https://addpipe.com/blog/audio-constraints-getusermedia/
@@ -125,6 +135,16 @@ function startRecording() {
 
 function stopRecording() {
   console.log("stopRecording() called");
+
+  // 重新啟用 Record 按鈕
+  recordButton.disabled = false;
+  recordButton.classList.remove("disabled");
+  recordButton.classList.add("active");
+
+  // 禁用 Stop 按鈕
+  stopButton.disabled = true;
+  stopButton.classList.remove("active");
+  stopButton.classList.add("disabled");
 
   //stop microphone access
   gumStream.getAudioTracks()[0].stop();
