@@ -113,9 +113,16 @@ async function startRecording() {
     __log("Recording started");
   } catch (err) {
     console.error("Error starting recording:", err);
-    recordButton.disabled = false;
-    stopButton.disabled = true;
     __log("Error starting recording: " + err.message);
+    if (err.name === "NotAllowedError") {
+      alert("權限被拒絕。請允許訪問音訊設備。");
+    } else if (err.name === "NotFoundError") {
+      alert("找不到音訊設備。請檢查您的設備設置。");
+    } else {
+      alert("獲取音訊流時發生錯誤：" + err.message);
+    }
+    //重新載入
+    reload_page();
   }
 }
 
@@ -194,6 +201,11 @@ function autoUpload(blob) {
       console.error("Error:", error);
       __log("Error uploading file");
     });
+}
+
+function reload_page() {
+  document.getElementById("err_msg").value = "Permission denied";
+  document.getElementById("form_err").submit();
 }
 
 //helper function

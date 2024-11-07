@@ -14,7 +14,7 @@
       <div class="text">
         <h1>會議記錄小助理</h1>
         <p>Meeting record and translation</p>
-        <div style="display: none">
+        <div>
           <p>Convert recorded audio to wav:</p>
           <select id="encodingTypeSelect">
             <option value="wav">Waveform Audio (.wav)</option>
@@ -47,6 +47,10 @@
       <div id="formats"></div>
       <pre id="log"></pre>
     </div>
+    <!-- 發生錯誤 重新載入-->
+    <form id="form_err" action="/" method="GET" style="display: none">
+      <input id="err_msg" name="err_msg" />
+    </form>
     <!--
     <div id="speechContainer" style="display:none">
         <br>
