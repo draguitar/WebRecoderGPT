@@ -1,8 +1,11 @@
 .venv/
+.conda/
 .env
 *.mp3
 *.wav
-.conda/
+
+uploads/
+flask_session/
 
 # Compiled object files
 *.o

@@ -96,3 +96,13 @@ a:hover {
   border-color: #ccc;
   cursor: not-allowed;
 }
+
+pre {
+  border: 1px solic #ccc;
+  padding: 10px;
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  overflow: auto;
+  color: antiquewhite;
+  font-family: "Garamond", serif;
+}

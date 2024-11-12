@@ -14,8 +14,8 @@
       <div class="text">
         <h1>會議記錄小助理</h1>
         <p>Meeting record and translation</p>
-        <div>
-          <p>Convert recorded audio to wav:</p>
+        <div style="display: none">
+          <p>Convert recorded audio to MP3:</p>
           <select id="encodingTypeSelect">
             <option value="wav">Waveform Audio (.wav)</option>
             <option value="mp3" selected>MP3 Audio (.mp3)</option>
@@ -23,15 +23,9 @@
           <ol id="recordingsList"></ol>
         </div>
         <p>
-          <a href="#">Whisper</a> |
-          <!--
-          <a href="#">Audio generation</a> |
-          <a href="#">Realtime WebSocket</a>
+          <a id="downloadTranscrLink" href="#" download="">Download</a>
         </p>
-        <p>
-          <a href="#">Realtime SDK</a> | <a href="#">翻譯神器</a> |
-          <a href="#">Facebook</a>-->
-        </p>
+        <input id="sessionId" value="{{session_id}}" />
       </div>
       <div class="buttons">
         <button class="btn-start active" id="recordButton">
@@ -46,7 +40,9 @@
     <div id="log_container">
       <div id="formats"></div>
       <pre id="log"></pre>
+      <div id="summaryDiv"></div>
     </div>
+
     <!-- 發生錯誤 重新載入-->
     <form id="form_err" action="/" method="GET" style="display: none">
       <input id="err_msg" name="err_msg" />

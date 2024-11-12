@@ -16,6 +16,9 @@ var audioContext; //new audio context to help us record
 var encodingTypeSelect = document.getElementById("encodingTypeSelect");
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
+var summaryDiv = document.getElementById("summaryDiv");
+
+var sessionId;
 
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
@@ -23,6 +26,10 @@ stopButton.addEventListener("click", stopRecording);
 
 async function startRecording() {
   console.log("startRecording() called");
+
+  sessionId = document.getElementById("sessionId").value;
+
+  alert(sessionId);
 
   recordButton.disabled = true;
   recordButton.classList.remove("active");
@@ -92,10 +99,7 @@ async function startRecording() {
     });
 
     recorder.onComplete = function (recorder, blob) {
-      console.info(recorder);
-      console.info(blob);
       __log("Encoding complete");
-
       createDownloadLink(blob, recorder.encoding);
       autoUpload(blob, recorder);
 
@@ -105,7 +109,7 @@ async function startRecording() {
     recorder.setOptions({
       timeLimit: 180,
       encodeAfterRecord: encodeAfterRecord,
-      ogg: { quality: 0.5 },
+      ogg: { quality: 0.9 },
       mp3: { bitRate: 192 },
     });
 
@@ -150,6 +154,7 @@ function stopRecording() {
 
   recorder.finishRecording();
   __log("Recording stopped");
+  __log("資料彙整中請稍後...");
 }
 
 function createDownloadLink(blob, encoding) {
@@ -181,12 +186,9 @@ function autoUpload(blob) {
   // Params
   // @blob
   // @filename
-  const uniqueId = crypto.randomUUID();
-  formData.append(
-    "audio_file",
-    blob,
-    "recording_" + uniqueId + "." + recorder.encoding
-  );
+  // const uniqueId = crypto.randomUUID();
+  const uniqueId = sessionId;
+  formData.append("audio_file", blob, uniqueId + "." + recorder.encoding);
   // 使用 Fetch API 發送到 Flask 後端
   fetch("/autoUpload", {
     method: "POST",
@@ -194,6 +196,13 @@ function autoUpload(blob) {
   })
     .then((response) => response.json())
     .then((data) => {
+      const downloadTranscrLink = document.getElementById(
+        "downloadTranscrLink"
+      );
+      downloadTranscrLink.href = "/download/" + uniqueId;
+      // const pre = document.getElementById("log");
+      // pre.textContent += "\n" + data.summary;
+      summaryDiv.innerHTML += data.summary;
       console.log("Success:", data);
       __log("File uploaded successfully");
     })
@@ -210,5 +219,5 @@ function reload_page() {
 
 //helper function
 function __log(e, data) {
-  log.innerHTML += "\n" + e + " " + (data || "");
+  log.innerHTML += e + " " + (data || "");
 }
