@@ -100,6 +100,7 @@ async function startRecording() {
 
     recorder.onComplete = function (recorder, blob) {
       __log("Encoding complete");
+      __log("資料彙整中請稍後...");
       createDownloadLink(blob, recorder.encoding);
       autoUpload(blob, recorder);
 
@@ -154,7 +155,6 @@ function stopRecording() {
 
   recorder.finishRecording();
   __log("Recording stopped");
-  __log("資料彙整中請稍後...");
 }
 
 function createDownloadLink(blob, encoding) {
@@ -204,7 +204,8 @@ function autoUpload(blob) {
       // pre.textContent += "\n" + data.summary;
       summaryDiv.innerHTML += data.summary;
       console.log("Success:", data);
-      __log("File uploaded successfully");
+      __log("Meeting summary completed successfully");
+      __log("任務已完成");
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -219,5 +220,5 @@ function reload_page() {
 
 //helper function
 function __log(e, data) {
-  log.innerHTML += e + " " + (data || "");
+  log.innerHTML += "\n" + e + " " + (data || "");
 }

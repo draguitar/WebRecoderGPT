@@ -27,15 +27,19 @@ def test_groq_whisper():
     print(segments)
 
 def test_gemini_whisper():
-    path = r'.\uploads\sample.mp3'
+    path = r'D:\python_workspace\Longer\python_workspace\WebRecoderGPT\uploads\segment_0000.mp3'
+
+    
     client = OpenAI(
             api_key=os.getenv('gemini_api_key'),
             base_url=os.getenv('gemini_api_url')
         )
+    client = Groq(api_key=os.getenv('groq_api_key'))
+    
 
 
     with open(path, "rb") as file:
-        client = Groq(api_key=os.getenv('groq_api_key'))
+        client = client,
         transcription = client.audio.transcriptions.create(
             file=(path, file.read()),
             model="whisper-large-v3",
@@ -45,7 +49,7 @@ def test_gemini_whisper():
             prompt="這裡要轉成的是繁體中文。",
         )
 
-    print(transcription.text)
+    print(transcription)
 
 def test_gemini():
     transcription = '幫我介紹深度學習，五十個字以內'
@@ -69,6 +73,9 @@ def test_gemini():
         print(completion.choices[0].message.content)
     except:
         print('Failed to connect to the Whisper API')
+
+
+        
  
 
 if __name__=='__main__':
